@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Brasil | Insumos Agrícolas - Sorriso / MT</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter & Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        agro: {
+                            deep: '#0B3B17',
+                            primary: '#15803D',
+                            emerald: '#10B981',
+                            gold: '#D97706',
+                            goldLight: '#F59E0B',
+                            sand: '#FDFBF7',
+                            dark: '#111827'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-bg {
+            background: linear-gradient(rgba(11, 59, 23, 0.82), rgba(17, 24, 39, 0.88)), 
+                        url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+        }
+        .pattern-bg {
+            background-color: #fdfbf7;
+            background-image: radial-gradient(#15803d 0.5px, transparent 0.5px), radial-gradient(#15803d 0.5px, #fdfbf7 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0,10px 10px;
+            background-opacity: 0.05;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-agro-sand antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-11 h-11 bg-gradient-to-br from-agro-primary to-agro-emerald rounded-xl flex items-center justify-center text-white shadow-md shadow-agro-primary/20 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid font-bold fa-wheat-awn text-xl text-agro-goldLight"></i>
+                    </div>
+                    <div>
+                        <span class="font-heading font-extrabold text-xl tracking-tight text-agro-deep block leading-none">AGRO BRASIL</span>
+                        <span class="text-[10px] font-semibold tracking-widest text-agro-gold uppercase block mt-1">Insumos Agrícolas</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Navigation -->
+                <nav class="hidden md:flex items-center space-x-8 font-medium text-sm text-gray-700">
+                    <a href="#home" class="hover:text-agro-primary transition-colors py-1 border-b-2 border-transparent hover:border-agro-primary">Início</a>
+                    <a href="#about" class="hover:text-agro-primary transition-colors py-1 border-b-2 border-transparent hover:border-agro-primary">Sobre Nós</a>
+                    <a href="#products" class="hover:text-agro-primary transition-colors py-1 border-b-2 border-transparent hover:border-agro-primary">Produtos & Soluções</a>
+                    <a href="#differentials" class="hover:text-agro-primary transition-colors py-1 border-b-2 border-transparent hover:border-agro-primary">Diferenciais</a>
+                    <a href="#contact" class="hover:text-agro-primary transition-colors py-1 border-b-2 border-transparent hover:border-agro-primary">Contato</a>
+                </nav>
+
+                <!-- Action Button -->
+                <div class="hidden sm:flex items-center space-x-4">
+                    <button onclick="openModal()" class="bg-agro-primary hover:bg-agro-deep text-white font-semibold px-5 py-2.5 rounded-xl shadow-sm hover:shadow-md transition-all text-sm flex items-center space-x-2">
+                        <i class="fa-solid fa-calculator text-agro-goldLight"></i>
+                        <span>Solicitar Cotação</span>
+                    </button>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg text-gray-600 hover:text-agro-primary hover:bg-gray-100 focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl" id="menuIcon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-6 space-y-3">
+            <a href="#home" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-gray-700 hover:text-agro-primary border-b border-gray-50">Início</a>
+            <a href="#about" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-gray-700 hover:text-agro-primary border-b border-gray-50">Sobre Nós</a>
+            <a href="#products" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-gray-700 hover:text-agro-primary border-b border-gray-50">Produtos & Soluções</a>
+            <a href="#differentials" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-gray-700 hover:text-agro-primary border-b border-gray-50">Diferenciais</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-gray-700 hover:text-agro-primary">Contato</a>
+            <div class="pt-2">
+                <button onclick="toggleMobileMenu(); openModal();" class="w-full bg-agro-primary hover:bg-agro-deep text-white font-semibold py-3 rounded-xl shadow-sm text-center flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-calculator text-agro-goldLight"></i>
+                    <span>Solicitar Cotação</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center pt-24 pb-16 hero-bg text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/20 text-agro-goldLight text-xs sm:text-sm font-semibold tracking-wide uppercase">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Sorriso - MT • Capital do Agronegócio</span>
+                    </div>
+                    <h1 class="font-heading font-extrabold text-3xl sm:text-5xl lg:text-6xl tracking-tight leading-tight">
+                        A Força e Alta Tecnologia para a <span class="text-transparent bg-clip-text bg-gradient-to-r from-agro-goldLight via-emerald-400 to-agro-gold">Sua Lavoura</span>
+                    </h1>
+                    <p class="text-base sm:text-lg text-gray-200 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        Parceiro estratégico do produtor rural em Sorriso e região. Oferecemos fertilizantes de alta eficiência, sementes selecionadas, defensivos e consultoria técnica especializada no campo.
+                    </p>
+                    
+                    <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <button onclick="openModal()" class="w-full sm:w-auto bg-gradient-to-r from-agro-gold to-agro-goldLight hover:from-amber-600 hover:to-agro-gold text-agro-dark font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 flex items-center justify-center space-x-3">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Solicitar Cotação Rápida</span>
+                        </button>
+                        <a href="https://wa.me/5566999805400?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20os%20insumos%20agri%CC%81colas." target="_blank" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white font-semibold border border-white/30 px-8 py-4 rounded-xl backdrop-blur-md transition-all flex items-center justify-center space-x-3">
+                            <i class="fa-brands fa-whatsapp text-emerald-400 text-xl"></i>
+                            <span>Falar via WhatsApp</span>
+                        </a>
+                    </div>
+
+                    <!-- Quick Metrics -->
+                    <div class="pt-10 grid grid-cols-3 gap-4 border-t border-white/10 text-center lg:text-left">
+                        <div>
+                            <span class="block font-heading font-bold text-2xl sm:text-3xl text-agro-goldLight">100%</span>
+                            <span class="text-xs sm:text-sm text-gray-300">Produtos Certificados</span>
+                        </div>
+                        <div>
+                            <span class="block font-heading font-bold text-2xl sm:text-3xl text-emerald-400">Suporte</span>
+                            <span class="text-xs sm:text-sm text-gray-300">Consultoria no Campo</span>
+                        </div>
+                        <div>
+                            <span class="block font-heading font-bold text-2xl sm:text-3xl text-agro-goldLight">Agilidade</span>
+                            <span class="text-xs sm:text-sm text-gray-300">Entrega na Região</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Card / Highlight -->
+                <div class="lg:col-span-5 hidden lg:block">
+                    <div class="bg-white/10 backdrop-blur-lg p-8 rounded-3xl border border-white/20 shadow-2xl space-y-6">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-2xl bg-agro-emerald/20 flex items-center justify-center text-agro-emerald border border-agro-emerald/30">
+                                <i class="fa-solid fa-seedling text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-heading font-bold text-white text-lg">Soluções Completas</h3>
+                                <p class="text-xs text-gray-300">Do plantio à colheita com máximo rendimento</p>
+                            </div>
+                        </div>
+                        
+                        <ul class="space-y-3 text-sm text-gray-200">
+                            <li class="flex items-center space-x-3">
+                                <i class="fa-solid fa-circle-check text-agro-emerald"></i>
+                                <span>Fertilizantes e Nutrição Foliar Superior</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i class="fa-solid fa-circle-check text-agro-emerald"></i>
+                                <span>Sementes de Milho, Soja e Algodão</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i class="fa-solid fa-circle-check text-agro-emerald"></i>
+                                <span>Proteção de Cultivos e Defensivos</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i class="fa-solid fa-circle-check text-agro-emerald"></i>
+                                <span>Assistência Técnica Presencial</span>
+                            </li>
+                        </ul>
+
+                        <div class="p-4 bg-agro-deep/60 rounded-2xl border border-agro-emerald/20 text-xs text-gray-300">
+                            <p class="font-semibold text-white mb-1"><i class="fa-solid fa-truck-fast text-agro-goldLight mr-1"></i> Atendimento Prioritário em Sorriso/MT</p>
+                            Entregas rápidas diretamente na sua propriedade rural.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 relative">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+                        <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=1200&auto=format&fit=crop" alt="Agronegócio Sorriso MT" class="w-full h-[450px] object-cover">
+                    </div>
+                    <!-- Badge floating -->
+                    <div class="absolute -bottom-6 -right-6 bg-agro-deep text-white p-6 rounded-2xl shadow-xl max-w-xs hidden sm:block border border-agro-primary/30">
+                        <div class="flex items-center space-x-3 mb-2">
+                            <i class="fa-solid fa-award text-agro-goldLight text-2xl"></i>
+                            <span class="font-heading font-bold text-base">Excelência no Campo</span>
+                        </div>
+                        <p class="text-xs text-gray-300 leading-relaxed">Localizados estrategicamente no maior polo produtor de grãos do Brasil.</p>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-block px-3 py-1 bg-emerald-100 text-agro-primary text-xs font-bold uppercase tracking-wider rounded-md">
+                        Sobre a Agro Brasil
+                    </div>
+                    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-agro-dark tracking-tight">
+                        Compromisso com a Produtividade do Produtor Rural
+                    </h2>
+                    <p class="text-gray-600 leading-relaxed">
+                        Sediada em <strong>Sorriso - MT</strong>, reconhecida nacionalmente como a Capital do Agronegócio, a <strong>Agro Brasil Insumos Agrícolas</strong> nasceu com a missão de disponibilizar as melhores tecnologias em nutrição, sementes e proteção de cultivos.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed">
+                        Entendemos a dinâmica e os desafios da lavoura mato-grossense. Por isso, oferecemos não apenas insumos de alto padrão, mas um acompanhamento técnico de perto para garantir que cada hectare alcance o seu máximo potencial produtivo.
+                    </p>
+
+                    <!-- Features bullets -->
+                    <div class="grid sm:grid-cols-2 gap-4 pt-2">
+                        <div class="flex items-start space-x-3">
+                            <div class="p-2 bg-emerald-50 rounded-lg text-agro-primary mt-1">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 text-sm">Marcas Renomadas</h4>
+                                <p class="text-xs text-gray-500">Parcerias com fornecedores de ponta.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3">
+                            <div class="p-2 bg-emerald-50 rounded-lg text-agro-primary mt-1">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 text-sm">Suporte no Campo</h4>
+                                <p class="text-xs text-gray-500">Consultoria técnica personalizada.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Products & Solutions Section -->
+    <section id="products" class="py-20 pattern-bg border-y border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="px-3 py-1 bg-agro-primary/10 text-agro-primary text-xs font-bold uppercase tracking-wider rounded-md">
+                    Catálogo de Soluções
+                </span>
+                <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-agro-dark">
+                    Insumos de Alta Performance para Sua Lavoura
+                </h2>
+                <p class="text-gray-600 text-base">
+                    Trabalhamos com uma linha completa de insumos agrícolas desenvolvidos para maximizar os resultados no solo e na colheita.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Product Card 1 -->
+                <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all border border-gray-100 flex flex-col justify-between group hover:-translate-y-1">
+                    <div>
+                        <div class="w-14 h-14 bg-emerald-100 text-agro-primary rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-agro-primary group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-flask-vial"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-gray-900 mb-3">Fertilizantes & Nutrição</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                            Formulados NPK, fertilizantes foliares, micronutrientes e condicionadores de solo para nutrição equilibrada.
+                        </p>
+                    </div>
+                    <button onclick="openModal('Fertilizantes e Nutrição')" class="w-full py-2.5 bg-gray-50 hover:bg-agro-primary hover:text-white text-gray-700 font-semibold text-sm rounded-xl transition-colors flex items-center justify-center space-x-2">
+                        <span>Cotar Categoria</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all border border-gray-100 flex flex-col justify-between group hover:-translate-y-1">
+                    <div>
+                        <div class="w-14 h-14 bg-amber-100 text-agro-gold rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-agro-gold group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-plant-wilt"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-gray-900 mb-3">Sementes de Produção</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                            Sementes certificadas de soja, milho e algodão com alto potencial genético e vigor germinativo.
+                        </p>
+                    </div>
+                    <button onclick="openModal('Sementes de Alta Produtividade')" class="w-full py-2.5 bg-gray-50 hover:bg-agro-primary hover:text-white text-gray-700 font-semibold text-sm rounded-xl transition-colors flex items-center justify-center space-x-2">
+                        <span>Cotar Categoria</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all border border-gray-100 flex flex-col justify-between group hover:-translate-y-1">
+                    <div>
+                        <div class="w-14 h-14 bg-emerald-100 text-agro-emerald rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-agro-emerald group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-gray-900 mb-3">Defensivos Agrícolas</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                            Fungicidas, herbicidas, inseticidas e inoculantes de alta tecnologia para sanidade completa da cultura.
+                        </p>
+                    </div>
+                    <button onclick="openModal('Defensivos Agrícolas')" class="w-full py-2.5 bg-gray-50 hover:bg-agro-primary hover:text-white text-gray-700 font-semibold text-sm rounded-xl transition-colors flex items-center justify-center space-x-2">
+                        <span>Cotar Categoria</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all border border-gray-100 flex flex-col justify-between group hover:-translate-y-1">
+                    <div>
+                        <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-user-gear"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-gray-900 mb-3">Consultoria Técnica</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                            Acompanhamento agronômico especializado, análise de solo e recomendações de manejo no campo.
+                        </p>
+                    </div>
+                    <button onclick="openModal('Consultoria Técnica no Campo')" class="w-full py-2.5 bg-gray-50 hover:bg-agro-primary hover:text-white text-gray-700 font-semibold text-sm rounded-xl transition-colors flex items-center justify-center space-x-2">
+                        <span>Solicitar Visita</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Differentials / Why Choose Us -->
+    <section id="differentials" class="py-20 bg-agro-deep text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="px-3 py-1 bg-white/10 text-agro-goldLight text-xs font-bold uppercase tracking-wider rounded-md border border-white/10">
+                    Nossos Diferenciais
+                </span>
+                <h2 class="font-heading font-extrabold text-3xl sm:text-4xl">
+                    Por Que Escolher a Agro Brasil?
+                </h2>
+                <p class="text-gray-300 text-base">
+                    Trabalhamos focado na segurança do produtor rural com atendimento ágil e transparência.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-agro-gold/50 transition-all">
+                    <div class="w-12 h-12 bg-agro-gold/20 text-agro-goldLight rounded-xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl mb-3">Atendimento Personalizado</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Atendimento dedicado focado na necessidade real da sua propriedade e nas especificidades da lavoura local.
+                    </p>
+                </div>
+
+                <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-agro-gold/50 transition-all">
+                    <div class="w-12 h-12 bg-agro-emerald/20 text-emerald-400 rounded-xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-truck-ramp-box"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl mb-3">Entrega Agilizada no MT</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Logística eficiente para Sorriso e regiões vizinhas, garantindo que o insumo chegue no tempo certo do plantio.
+                    </p>
+                </div>
+
+                <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-agro-gold/50 transition-all">
+                    <div class="w-12 h-12 bg-agro-gold/20 text-agro-goldLight rounded-xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-certificate"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl mb-3">Produtos Certificados</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Garantia de origem e procedência em todas as linhas de insumos, defensivos e sementes comercializadas.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Location Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12">
+                
+                <!-- Info Column -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <span class="px-3 py-1 bg-emerald-100 text-agro-primary text-xs font-bold uppercase tracking-wider rounded-md">
+                            Fale Conosco
+                        </span>
+                        <h2 class="font-heading font-extrabold text-3xl text-agro-dark mt-3">
+                            Estamos Prontos para Atender Você
+                        </h2>
+                        <p class="text-gray-600 text-sm mt-2">
+                            Entre em contato com nossa equipe comercial ou venha nos visitar em Sorriso - MT.
+                        </p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <!-- Address -->
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-emerald-50 text-agro-primary rounded-xl flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-map-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 text-base">Endereço Completo</h4>
+                                <p class="text-gray-600 text-sm mt-1">
+                                    Perimetral Sudeste, 11107 - Centro Sul<br>
+                                    Sorriso - MT, 78890-000
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- WhatsApp -->
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 text-base">Atendimento via WhatsApp</h4>
+                                <p class="text-gray-600 text-sm mt-1">
+                                    <a href="https://wa.me/5566999805400" target="_blank" class="text-agro-primary font-semibold hover:underline">
+                                        +55 (66) 99980-5400
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Hours -->
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-amber-50 text-agro-gold rounded-xl flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 text-base">Horário de Funcionamento</h4>
+                                <p class="text-gray-600 text-sm mt-1">
+                                    Segunda a Sexta: 07:30 - 17:30<br>
+                                    Sábado: 07:30 - 11:30
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Direct WhatsApp CTA -->
+                    <div class="pt-2">
+                        <a href="https://wa.me/5566999805400?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20insumos." target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 px-6 rounded-xl shadow-lg transition-all flex items-center justify-center space-x-3">
+                            <i class="fa-brands fa-whatsapp text-2xl"></i>
+                            <span>Abrir Conversa no WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Google Maps Embed -->
+                <div class="lg:col-span-7 h-[420px] lg:h-auto min-h-[350px] rounded-3xl overflow-hidden shadow-lg border border-gray-200">
+                    <iframe 
+                        title="Mapa Agro Brasil Insumos Agrícolas"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3923.689617329598!2d-55.7148!3d-12.5448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDMyJzE0MiIgUyA1NcKwNDInNTMuMyIgVw!5e0!3m2!1spt-BR!2sbr!4v1650000000000!5m2!1spt-BR!2sbr" 
+                        class="w-full h-full border-0" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-agro-dark text-white border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+                <div class="flex items-center space-x-3">
+                    <div class="w-9 h-9 bg-agro-primary rounded-lg flex items-center justify-center text-white">
+                        <i class="fa-solid fa-wheat-awn text-agro-goldLight"></i>
+                    </div>
+                    <span class="font-heading font-bold text-lg tracking-tight">AGRO BRASIL</span>
+                </div>
+
+                <p class="text-xs text-gray-400 text-center">
+                    &copy; <span id="year"></span> Agro Brasil Insumos Agrícolas. Todos os direitos reservados.<br>
+                    Perimetral Sudeste, 11107 - Sorriso / MT
+                </p>
+
+                <div class="flex space-x-4">
+                    <a href="https://wa.me/5566999805400" target="_blank" class="w-9 h-9 bg-gray-800 hover:bg-emerald-600 rounded-full flex items-center justify-center text-gray-300 hover:text-white transition-colors">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                    <a href="#home" class="w-9 h-9 bg-gray-800 hover:bg-agro-primary rounded-full flex items-center justify-center text-gray-300 hover:text-white transition-colors">
+                        <i class="fa-solid fa-arrow-up"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Quote Request Modal -->
+    <div id="quoteModal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 overflow-y-auto">
+        <div class="bg-white rounded-3xl max-w-lg w-full shadow-2xl overflow-hidden transition-all transform duration-300 my-8">
+            
+            <!-- Modal Header -->
+            <div class="bg-agro-deep text-white p-6 relative">
+                <button onclick="closeModal()" class="absolute top-5 right-5 text-gray-300 hover:text-white text-xl focus:outline-none">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-agro-primary/40 rounded-xl flex items-center justify-center text-agro-goldLight">
+                        <i class="fa-solid fa-calculator text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-heading font-bold text-xl">Solicitar Cotação</h3>
+                        <p class="text-xs text-gray-300">Receba nosso orçamento diretamente no seu WhatsApp</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Form -->
+            <form id="quoteForm" onsubmit="submitQuote(event)" class="p-6 space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Seu Nome / Produtor</label>
+                    <input type="text" id="modalName" required placeholder="Ex: João Silva" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-agro-primary focus:border-transparent outline-none text-sm transition">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Telefone / WhatsApp</label>
+                        <input type="tel" id="modalPhone" required placeholder="(66) 99999-9999" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-agro-primary focus:border-transparent outline-none text-sm transition">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Município / Região</label>
+                        <input type="text" id="modalCity" required value="Sorriso - MT" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-agro-primary focus:border-transparent outline-none text-sm transition">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Insumo de Interesse</label>
+                    <select id="modalProduct" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-agro-primary focus:border-transparent outline-none text-sm bg-white transition">
+                        <option value="Fertilizantes e Nutrição">Fertilizantes & Nutrição</option>
+                        <option value="Sementes de Alta Produtividade">Sementes de Alta Produtividade</option>
+                        <option value="Defensivos Agrícolas">Defensivos Agrícolas</option>
+                        <option value="Consultoria Técnica no Campo">Consultoria Técnica no Campo</option>
+                        <option value="Outros Insumos">Outros Insumos</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Observações ou Área (Hectares)</label>
+                    <textarea id="modalNotes" rows="3" placeholder="Informe a quantidade estimada, cultura (soja, milho, etc.) ou detalhes..." class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-agro-primary focus:border-transparent outline-none text-sm transition"></textarea>
+                </div>
+
+                <div class="pt-2">
+                    <button type="submit" class="w-full bg-agro-primary hover:bg-agro-deep text-white font-bold py-3.5 rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center space-x-2">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Enviar Cotação via WhatsApp</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript Interactions -->
+    <script>
+        // Set dynamic year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const icon = document.getElementById('menuIcon');
+            menu.classList.toggle('hidden');
+            if (menu.classList.contains('hidden')) {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            }
+        }
+
+        // Modal Logic
+        function openModal(productCategory = '') {
+            const modal = document.getElementById('quoteModal');
+            if (productCategory) {
+                document.getElementById('modalProduct').value = productCategory;
+            }
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('quoteModal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close Modal when clicking outside content
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('quoteModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Submit Form to WhatsApp
+        function submitQuote(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('modalName').value;
+            const phone = document.getElementById('modalPhone').value;
+            const city = document.getElementById('modalCity').value;
+            const product = document.getElementById('modalProduct').value;
+            const notes = document.getElementById('modalNotes').value;
+
+            const text = `*SOLICITAÇÃO DE COTAÇÃO - AGRO BRASIL*%0A%0A` +
+                         `*Nome:* ${encodeURIComponent(name)}%0A` +
+                         `*Telefone:* ${encodeURIComponent(phone)}%0A` +
+                         `*Local:* ${encodeURIComponent(city)}%0A` +
+                         `*Interesse:* ${encodeURIComponent(product)}%0A` +
+                         `*Detalhes:* ${encodeURIComponent(notes || 'Nenhum detalhe adicional informado')}`;
+
+            const whatsappUrl = `https://wa.me/5566999805400?text=${text}`;
+            
+            window.open(whatsappUrl, '_blank');
+            closeModal();
+        }
+    </script>
+</body>
+</html>
